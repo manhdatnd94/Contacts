@@ -22,6 +22,9 @@
 		1B455F5C220402F9001B4DBC /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B455F5B220402F9001B4DBC /* BaseTableViewCell.swift */; };
 		1B455F622204065C001B4DBC /* BaseFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B455F612204065C001B4DBC /* BaseFetcher.swift */; };
 		1B455F6522040721001B4DBC /* BaseXMLEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B455F6422040721001B4DBC /* BaseXMLEntity.swift */; };
+		1BB26E28221700320081B2C9 /* ContactCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB26E27221700320081B2C9 /* ContactCommon.swift */; };
+		1BB26E2A221712D30081B2C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BB26E29221712D20081B2C9 /* GoogleService-Info.plist */; };
+		1BB26E2C221719050081B2C9 /* ContactsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB26E2B221719050081B2C9 /* ContactsEntity.swift */; };
 		1BBC1EBE2213C866001CF808 /* ContactsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBC1EBD2213C866001CF808 /* ContactsFetcher.swift */; };
 		1BC915DA220457220092185C /* Contacts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BC915D8220457220092185C /* Contacts.xcdatamodeld */; };
 		1BC91619220458530092185C /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC91618220458530092185C /* ContactsViewController.swift */; };
@@ -75,6 +78,9 @@
 		1B455F612204065C001B4DBC /* BaseFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFetcher.swift; sourceTree = "<group>"; };
 		1B455F6422040721001B4DBC /* BaseXMLEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseXMLEntity.swift; sourceTree = "<group>"; };
 		1B469397220D793400176B61 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		1BB26E27221700320081B2C9 /* ContactCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCommon.swift; sourceTree = "<group>"; };
+		1BB26E29221712D20081B2C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1BB26E2B221719050081B2C9 /* ContactsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsEntity.swift; sourceTree = "<group>"; };
 		1BBC1EBD2213C866001CF808 /* ContactsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsFetcher.swift; sourceTree = "<group>"; };
 		1BC915D9220457220092185C /* Contacts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Contacts.xcdatamodel; sourceTree = "<group>"; };
 		1BC91618220458530092185C /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +183,7 @@
 				1B455F13220400BA001B4DBC /* AppDelegate.swift */,
 				1B455F1D220400BA001B4DBC /* Assets.xcassets */,
 				1B455F22220400BA001B4DBC /* Info.plist */,
+				1BB26E29221712D20081B2C9 /* GoogleService-Info.plist */,
 				1B469397220D793400176B61 /* Bridging-Header.h */,
 			);
 			path = Contacts;
@@ -255,6 +262,7 @@
 		1B455F4B220401D6001B4DBC /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				1BB26E27221700320081B2C9 /* ContactCommon.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -283,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				1B455F6422040721001B4DBC /* BaseXMLEntity.swift */,
+				1BB26E2B221719050081B2C9 /* ContactsEntity.swift */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -416,6 +425,7 @@
 			files = (
 				1BC91620220458E50092185C /* ContactsTableViewCell.xib in Resources */,
 				1B455F21220400BA001B4DBC /* LaunchScreen.storyboard in Resources */,
+				1BB26E2A221712D30081B2C9 /* GoogleService-Info.plist in Resources */,
 				1B455F1E220400BA001B4DBC /* Assets.xcassets in Resources */,
 				1B455F19220400BA001B4DBC /* Main.storyboard in Resources */,
 			);
@@ -513,15 +523,27 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Contacts/Pods-Contacts-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
+				"${BUILT_PRODUCTS_DIR}/LazyImage/LazyImage.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SWXMLHash/SWXMLHash.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LazyImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWXMLHash.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -560,8 +582,10 @@
 				1BBC1EBE2213C866001CF808 /* ContactsFetcher.swift in Sources */,
 				1B455F622204065C001B4DBC /* BaseFetcher.swift in Sources */,
 				1B455F5A220402DF001B4DBC /* BaseTableViewController.swift in Sources */,
+				1BB26E28221700320081B2C9 /* ContactCommon.swift in Sources */,
 				1B455F58220402CD001B4DBC /* BaseTabBarController.swift in Sources */,
 				1B455F56220402B1001B4DBC /* BaseNavigationController.swift in Sources */,
+				1BB26E2C221719050081B2C9 /* ContactsEntity.swift in Sources */,
 				1BC9161F220458E50092185C /* ContactsTableViewCell.swift in Sources */,
 				1B455F14220400BA001B4DBC /* AppDelegate.swift in Sources */,
 				1BC91619220458530092185C /* ContactsViewController.swift in Sources */,

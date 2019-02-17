@@ -16,6 +16,9 @@ class ContactsViewController: BaseViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var contactsTableView: UITableView!
     var contactsDictonary:Dictionary = [String:String]()
+    var contactsFetcher:ContactsFetcher?
+    var contactEnitity:ContactsEntity?
+    var listContact:Array<Any>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,18 +28,14 @@ class ContactsViewController: BaseViewController, UITableViewDelegate, UITableVi
         
         GIDSignIn.sharedInstance().uiDelegate = self
         
+        self.listContact = []
+        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign out", style: .plain, target: self, action: #selector(signOut))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign in", style: .plain, target: self, action: #selector(signIn))
         
-        self.contactsDictonary = Dictionary()
-        
         self.contactsTableView.register(UINib.init(nibName: "ContactsTableViewCell", bundle: nil), forCellReuseIdentifier: "ContactsTableViewCell")
         
-        //Fetch data from Google
-        let delegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        let contact = delegate.persistentContainer.viewContext
-        
-        let query = NSFetchRequest
+        NotificationCenter.default.addObserver(self, selector: #selector(getData), name: NSNotification.Name(rawValue: Constant().getContactsInfoNotification), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,12 +45,27 @@ class ContactsViewController: BaseViewController, UITableViewDelegate, UITableVi
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        let numberRow = self.contactEnitity?.feed?.entry?.count
+        if (numberRow == nil || numberRow! == 0) {
+            return 0
+        } else {
+            return numberRow!
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ContactsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ContactsTableViewCell", for: indexPath) as! ContactsTableViewCell
-        cell.nameLabel.text = "Test"
+        if ((self.contactEnitity?.feed?.entry?.count)! > 0) {
+            let entry = self.contactEnitity?.feed?.entry?[indexPath.row] as! ContactsEntityFeedEntry
+            cell.setCellWithEntity(entry: entry)
+//            for entry in (self.contactEnitity?.feed?.entry)! {
+//                if ((entry.gdEmail?.count)! > 0 && entry.gdEmail != nil) {
+//                    cell.nameLabel.text = entry.gdEmail![0].address
+//                } else {
+//                    cell.nameLabel.text = "Null"
+//                }
+//            }
+        }
         return cell
     }
     
@@ -70,6 +84,13 @@ class ContactsViewController: BaseViewController, UITableViewDelegate, UITableVi
     
     @objc func signIn() {
         GIDSignIn.sharedInstance()?.signIn()
+    }
+    
+    @objc func getData(notification:Notification) {
+        self.contactEnitity = notification.userInfo![Constant().userInforKey] as? ContactsEntity
+        DispatchQueue.main.async {
+            self.contactsTableView.reloadData()
+        }
     }
     
     func setNavigationBar() {

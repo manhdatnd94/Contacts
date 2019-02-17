@@ -15,4 +15,7 @@ class Constant: NSObject {
     let ClientId = "554746142537-6h6qacj72v8qk3qr59gchmid8la9b2si.apps.googleusercontent.com"
     
     let UserAccessToken = "UserAccessToken"
+    
+    let getContactsInfoNotification = "getContactsInfoNotification"
+    let userInforKey = "userInforKey"
 }

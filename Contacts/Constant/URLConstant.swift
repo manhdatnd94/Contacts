@@ -9,5 +9,5 @@
 import UIKit
 
 class URLConstant: NSObject {
-    let ContactsEndPointURLString = "https://www.google.com/m8/feeds/contacts/default/thin?max-results=10000"
+    let ContactsEndPointURLString = "https://www.google.com/m8/feeds/contacts/default/thin?alt=json&max-results=10000&access_token="
 }

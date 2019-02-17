@@ -10,42 +10,13 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    open func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url as URL?, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
-    }
-    
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if let error = error {
-            print(error.localizedDescription)
-        } else {
-            let userID = user.userID
-            let idToken = user.authentication.idToken
-            let fullName = user.profile.name
-            let givenName = user.profile.givenName
-            let familyName = user.profile.familyName
-            let email = user.profile.email
-            let accessToken = user.authentication.accessToken
-            
-            UserDefaults.standard.set(accessToken, forKey: Constant().UserAccessToken)
-        }
-    }
-    
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        
-    }
     var window: UIWindow?
-
+    var contactsCommon:ContactCommon = ContactCommon()
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        GIDSignIn.sharedInstance().clientID = Constant().ClientId
-        GIDSignIn.sharedInstance().delegate = self
-        let token = UserDefaults.standard.string(forKey: Constant().UserAccessToken)
-        if token != nil {
-            GIDSignIn.sharedInstance()?.signInSilently()
-        }
         
         return true
     }

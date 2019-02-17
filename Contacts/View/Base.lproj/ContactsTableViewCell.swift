@@ -16,4 +16,12 @@ class ContactsTableViewCell: BaseTableViewCell {
         // Initialization code
     }
     
+    func setCellWithEntity(entry: ContactsEntityFeedEntry) {
+        if ((entry.gdEmail?.count)! > 0 && entry.gdEmail != nil) {
+            self.nameLabel.text = entry.gdEmail![0].address
+        } else {
+            self.nameLabel.text = "Null"
+        }
+    }
+    
 }
