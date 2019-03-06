@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1B455F0F220400BA001B4DBC"
-               BuildableName = "Contacts.app"
-               BlueprintName = "Contacts"
-               ReferencedContainer = "container:Contacts.xcodeproj">
+               BuildableName = "ContactProjectDemo.app"
+               BlueprintName = "ContactProjectDemo"
+               ReferencedContainer = "container:ContactProjectDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1B455F0F220400BA001B4DBC"
-            BuildableName = "Contacts.app"
-            BlueprintName = "Contacts"
-            ReferencedContainer = "container:Contacts.xcodeproj">
+            BuildableName = "ContactProjectDemo.app"
+            BlueprintName = "ContactProjectDemo"
+            ReferencedContainer = "container:ContactProjectDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1B455F0F220400BA001B4DBC"
-            BuildableName = "Contacts.app"
-            BlueprintName = "Contacts"
-            ReferencedContainer = "container:Contacts.xcodeproj">
+            BuildableName = "ContactProjectDemo.app"
+            BlueprintName = "ContactProjectDemo"
+            ReferencedContainer = "container:ContactProjectDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1B455F0F220400BA001B4DBC"
-            BuildableName = "Contacts.app"
-            BlueprintName = "Contacts"
-            ReferencedContainer = "container:Contacts.xcodeproj">
+            BuildableName = "ContactProjectDemo.app"
+            BlueprintName = "ContactProjectDemo"
+            ReferencedContainer = "container:ContactProjectDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
